@@ -1,4 +1,4 @@
-# google-dorks-bug-bounty
+# Google Dorks for Bug Bounty
 
 A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
@@ -42,6 +42,12 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 > site:googleapis.com "example.com"
 
 > site:drive.google.com "example.com"
+
+> site:dev.azure.com "example[.]com"
+
+> site:onedrive.live.com "example[.]com"
+
+> site:digitaloceanspaces.com "example[.]com"
 
 ### Bug Bounty programs and Vulnerability Disclosure Programs
 
