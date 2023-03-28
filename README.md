@@ -49,6 +49,12 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:digitaloceanspaces.com "example[.]com"
 
+> site:sharepoint.com "example[.]com"
+
+> site:s3-external-1.amazonaws.com "example[.]com"
+
+> site:s3.dualstack.us-east-1.amazonaws.com "example[.]com"
+
 ### Bug Bounty programs and Vulnerability Disclosure Programs
 
 > "submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone"
