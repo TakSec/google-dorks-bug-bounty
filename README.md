@@ -83,6 +83,15 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:*/server-status apache
 
+### JFrog Artifactory
+
+> site:jfrog.io "example[.]com"
+
+### Firebase
+
+> site:firebaseio.com "example[.]com"
+
+
 ---
 
 Medium articles for more dorks:
