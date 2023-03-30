@@ -55,6 +55,12 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:s3.dualstack.us-east-1.amazonaws.com "example[.]com"
 
+> site:http://dropbox.com/s "example[.]com"
+
+> site:http://box.com/s "example[.]com"
+
+> site:http://docs.google.com inurl:"/d/" "example[.]com"
+
 ### Bug Bounty programs and Vulnerability Disclosure Programs
 
 > "submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone"
@@ -90,6 +96,10 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 ### Firebase
 
 > site:firebaseio.com "example[.]com"
+
+### Extensions
+
+> site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess
 
 
 ---
