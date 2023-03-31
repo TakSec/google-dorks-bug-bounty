@@ -103,7 +103,7 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 ### API Docs:
 
-inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
+> inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
 
 
 ---
