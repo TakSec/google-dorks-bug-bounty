@@ -1,4 +1,4 @@
-# Google Dorks for Bug Bounty
+# Google Dorks for 
 
 A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
@@ -65,6 +65,8 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > "submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone"
 
+> site:*/security.txt "bounty"
+
 ### WordPress
 
 > inurl:/wp-admin/admin-ajax.php
@@ -101,10 +103,13 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess
 
-### API Docs:
+### API Docs
 
 > inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
 
+### High % inurl keywords
+
+> inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
 
 ---
 
