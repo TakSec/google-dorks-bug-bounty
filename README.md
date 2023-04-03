@@ -87,6 +87,22 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > inurl:url= | inurl:return= | inurl:next= | inurl:redir= inurl:http site:example.com
 
+### SQLi Prone Parameters
+
+> inurl:id= | inurl:pid= | inurl:category= | inurl:cat= | inurl:action= | inurl:sid=  | inurl:dir= "example[.]com"
+
+### SSRF Prone Parameters
+
+> inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain=  | inurl:page= "example[.]com"
+
+### LFI Prone Parameters
+
+> inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc=  | inurl:conf= "example[.]com"
+
+### RCE Prone Parameters
+
+> inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= "example[.]com"
+
 ### Apache Server Status Exposed
 
 > site:*/server-status apache
@@ -111,6 +127,7 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
 
+
 ---
 
 Medium articles for more dorks:
@@ -118,3 +135,11 @@ Medium articles for more dorks:
 https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906
 
 https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d
+
+Top Parameters:
+
+https://github.com/lutfumertceylan/top25-parameter
+
+Proviesec dorks:
+
+https://github.com/Proviesec/google-dorks
