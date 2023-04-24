@@ -136,6 +136,8 @@ https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906
 
 https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d
 
+https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12
+
 Top Parameters:
 
 https://github.com/lutfumertceylan/top25-parameter
