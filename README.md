@@ -97,7 +97,7 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 ### LFI Prone Parameters
 
-> inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:&  site:example.com
+> inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:& site:example.com
 
 ### RCE Prone Parameters
 
@@ -126,6 +126,10 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 ### High % inurl keywords
 
 > inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
+
+### Sensitive Parameters
+
+> inurl:email= | inurl:phone= | inurl:user= | inurl:name= | inurl:key= | inurl:password= | inurl:secret= inurl:& site:example[.]com
 
 
 ---
