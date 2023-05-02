@@ -93,10 +93,6 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
 
-### Apache Server Status Exposed
-
-> site:*/server-status apache
-
 ### JFrog Artifactory
 
 > site:jfrog.io "example[.]com"
@@ -113,13 +109,17 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:example.com ”choose file”
 
-## Dorks without domain
+## Dorks that work better w/o domain
 
 ### Bug Bounty programs and Vulnerability Disclosure Programs
 
 > "submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone"
 
 > site:*/security.txt "bounty"
+
+### Apache Server Status Exposed
+
+> site:*/server-status apache
 
 ### WordPress
 
