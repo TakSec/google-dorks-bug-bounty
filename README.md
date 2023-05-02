@@ -11,6 +11,18 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:example.com -www -shop -share -ir -mfa
 
+### PHP extension w/ parameters
+
+> site:example.com ext:php inurl:?
+
+### Disclosed XSS and Open Redirect Bug Bounties
+
+> site:openbugbounty.org inurl:reports intext:"example.com"
+
+### Juicy Extensions
+
+> site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess
+
 ### Code leaks
 
 > site:pastebin.com "example.com"
@@ -20,18 +32,6 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 > site:codebeautify.org "example.com"
 
 > site:codepen.io "example.com"
-
-### PHP extension w/ parameters
-
-> site:example.com ext:php inurl:?
-
-### Disclosed XSS and Open Redirect Bug Bounties
-
-> site:openbugbounty.org inurl:reports intext:"example.com"
-
-### File upload endpoints
-
-> site:example.com ”choose file”
 
 ### Cloud Storage
 
@@ -61,24 +61,6 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:docs.google.com inurl:"/d/" "example[.]com"
 
-### Bug Bounty programs and Vulnerability Disclosure Programs
-
-> "submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone"
-
-> site:*/security.txt "bounty"
-
-### WordPress
-
-> inurl:/wp-admin/admin-ajax.php
-
-### Drupal
-
-> intext:"Powered by" & intext:Drupal & inurl:user
-
-### Joomla
-
-> site:*/joomla/login
-
 ### XSS prone parameters
 
 > inurl:q= | inurl:s= | inurl:search= | inurl:query= inurl:& site:example.com
@@ -103,6 +85,14 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= inurl:& site:example.com
 
+### High % inurl keywords
+
+> inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
+
+### Sensitive Parameters
+
+> inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
+
 ### Apache Server Status Exposed
 
 > site:*/server-status apache
@@ -115,21 +105,33 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:firebaseio.com "example[.]com"
 
-### Extensions
-
-> site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess
-
 ### API Docs
 
 > inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
 
-### High % inurl keywords
+### File upload endpoints
 
-> inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
+> site:example.com ”choose file”
 
-### Sensitive Parameters
+## Dorks without domain
 
-> inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
+### Bug Bounty programs and Vulnerability Disclosure Programs
+
+> "submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone"
+
+> site:*/security.txt "bounty"
+
+### WordPress
+
+> inurl:/wp-admin/admin-ajax.php
+
+### Drupal
+
+> intext:"Powered by" & intext:Drupal & inurl:user
+
+### Joomla
+
+> site:*/joomla/login
 
 
 ---
