@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Dorks for Bug Bounty</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #212121;
+            color: #f0f0f0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 1.2em;
+        }
+        input {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 5px;
+        }
+        button {
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #69f0ae;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        p {
+            margin: 0;
+        }
+        p.description {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        section {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        ul.link-list {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        ul.link-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Google Dorks for Bug Bounty</h1>
+    <p>
+        <a href="https://twitter.com/TakSec" target="_blank">
+            <img src="https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec" alt="Twitter Follow Badge">
+        </a><br><br>
+    </p>
+    <label for="domainInput">Enter a domain:</label>
+    <input type="text" id="domainInput" placeholder="example.com">
+    <button id="updateDomainButton">Update Domain</button>
+    <ul id="dorkList"></ul>
+    <section>
+        <h2>Additional Resources</h2>
+        <ul class="link-list">
+            <li><a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">Google Dorks For Bug Bounty</a></li>
+            <li><a href="https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906" target="_blank">5 Google Dorks Every Hacker Needs to Know</a></li>
+            <li><a href="https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d" target="_blank">Uncover Hidden Gems in the Cloud with Google Dorks</a></li>
+            <li><a href="https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12" target="_blank">10 Google Dorks for Sensitive Data</a></li>
+        </ul>
+    </section>
+    <script>
+        let originalDorks = [];
+
+        async function fetchDorks() {
+            const url = "https://raw.githubusercontent.com/TakSec/google-dorks-bug-bounty/main/README.md";
+            const response = await fetch(url);
+            const text = await response.text();
+
+            const dorkList = document.getElementById("dorkList");
+            const regex = /(?:^### (.+)|^> (.+))/gm;
+            let match;
+            let title = '';
+            let firstDork = true;
+
+            while ((match = regex.exec(text)) !== null) {
+                if (match[1]) {
+                    // Title match
+                    title = match[1];
+                } else {
+                    // Dork match
+                    if (firstDork) {
+                        firstDork = false;
+                        continue;
+                    }
+                    const dork = match[2];
+                    originalDorks.push(dork);
+                    const listItem = createDorkListItem(dork, title);
+                    dorkList.appendChild(listItem);
+                }
+            }
+        }
+
+        let prevTitle = '';
+
+        function createDorkListItem(dork, description) {
+            const googleLink = `https://www.google.com/search?q=${encodeURIComponent(dork)}`;
+
+            const listItem = document.createElement("li");
+
+            if (description && description !== prevTitle) {
+                const desc = document.createElement("p");
+                desc.textContent = description;
+                desc.classList.add("description");
+                listItem.appendChild(desc);
+                prevTitle = description;
+            }
+
+            const link = document.createElement("a");
+            link.href = googleLink;
+            link.textContent = dork;
+            link.classList.add("dorkLink");
+            link.target = "_blank";
+
+            listItem.appendChild(link);
+
+            return listItem;
+        }
+
+        function updateDomain() {
+            const domainInput = document.getElementById("domainInput");
+            const domain = domainInput.value;
+            if (!domain) return;
+
+            const dorkLinks = document.querySelectorAll(".dorkLink");
+            dorkLinks.forEach((link, index) => {
+                const originalDork = originalDorks[index];
+                const updatedDork = originalDork.replace(/example(?:\[?\.\]?|\.)com/g, domain);
+                const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(updatedDork)}`;
+
+                link.textContent = updatedDork;
+                link.href = updatedLink;
+            });
+        }
+
+        const updateDomainButton = document.getElementById("updateDomainButton");
+        updateDomainButton.addEventListener("click", updateDomain);
+
+        fetchDorks();
+    </script>
+</body>
+</html>
