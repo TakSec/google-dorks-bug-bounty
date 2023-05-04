@@ -133,7 +133,9 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:*/joomla/login
 
+### Directory Listing
 
+> site:example.com intitle:index.of
 ---
 
 Medium articles for more dorks:
