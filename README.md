@@ -21,7 +21,43 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 ### Juicy Extensions
 
-> site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess
+> site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess | ext:xml | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora
+
+### Directory Listing
+
+> site:example.com intitle:index.of
+
+### Exposed Database Files
+
+> site:example.com ext:sql | ext:dbf | ext:mdb
+
+### Wordpress
+
+> site:example.com inurl:wp- | inurl:wp-content | inurl:plugins | inurl:uploads | inurl:themes | inurl:download
+
+### Find Login Pages
+
+> site:example.com inurl:login
+
+### BackUp and Old Files
+
+> site:example.com ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup
+
+### Sql Errors
+
+> site:example.com intext:"sql syntax near" | intext:"syntax error has occurred" | intext:"incorrect syntax near" | intext:"unexpected end of SQL command" | intext:"Warning: mysql_connect()" | intext:"Warning: mysql_query()" | intext:"Warning: pg_connect()"
+
+### Exposed Documents
+
+> site:example.com ext:doc | ext:docx | ext:odt | ext:pdf | ext:rtf | ext:sxw | ext:psw | ext:ppt | ext:pptx | ext:pps | ext:csv
+
+### Install / Setup Files
+
+> site:example.com inurl:readme | inurl:license | inurl:install | inurl:setup | inurl:config
+
+### Open Rediects
+
+> site:example.com inurl:redir | inurl:url | inurl:redirect | inurl:return | inurl:src=http | inurl:r=http
 
 ### Code Leaks
 
@@ -133,9 +169,6 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:*/joomla/login
 
-### Directory Listing
-
-> site:example.com intitle:index.of
 ---
 
 Medium articles for more dorks:
