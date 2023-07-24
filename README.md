@@ -23,6 +23,42 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess
 
+### XSS prone parameters
+
+> inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:& site:example.com
+
+### Open Redirect prone parameters
+
+> inurl:url= | inurl:return= | inurl:next= | inurl:redir= inurl:http site:example.com
+
+### SQLi Prone Parameters
+
+> inurl:id= | inurl:pid= | inurl:category= | inurl:cat= | inurl:action= | inurl:sid= | inurl:dir= inurl:& site:example.com
+
+### SSRF Prone Parameters
+
+> inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain=  | inurl:page= inurl:& site:example.com
+
+### LFI Prone Parameters
+
+> inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:& site:example.com
+
+### RCE Prone Parameters
+
+> inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= inurl:& site:example.com
+
+### High % inurl keywords
+
+> inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
+
+### Sensitive Parameters
+
+> inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
+
+### API Docs
+
+> inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
+
 ### Code Leaks
 
 > site:pastebin.com "example.com"
@@ -61,38 +97,6 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:docs.google.com inurl:"/d/" "example[.]com"
 
-### XSS prone parameters
-
-> inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:& site:example.com
-
-### Open Redirect prone parameters
-
-> inurl:url= | inurl:return= | inurl:next= | inurl:redir= inurl:http site:example.com
-
-### SQLi Prone Parameters
-
-> inurl:id= | inurl:pid= | inurl:category= | inurl:cat= | inurl:action= | inurl:sid= | inurl:dir= inurl:& site:example.com
-
-### SSRF Prone Parameters
-
-> inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain=  | inurl:page= inurl:& site:example.com
-
-### LFI Prone Parameters
-
-> inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:& site:example.com
-
-### RCE Prone Parameters
-
-> inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= inurl:& site:example.com
-
-### High % inurl keywords
-
-> inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
-
-### Sensitive Parameters
-
-> inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
-
 ### JFrog Artifactory
 
 > site:jfrog.io "example[.]com"
@@ -100,10 +104,6 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 ### Firebase
 
 > site:firebaseio.com "example[.]com"
-
-### API Docs
-
-> inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
 
 ### File upload endpoints
 
