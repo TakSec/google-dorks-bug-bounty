@@ -63,7 +63,7 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 ### XSS prone parameters
 
-> inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:query= inurl:& site:example.com
+> inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:& site:example.com
 
 ### Open Redirect prone parameters
 
