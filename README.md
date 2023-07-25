@@ -29,7 +29,7 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 ### Open Redirect prone parameters
 
-> inurl:url= | inurl:return= | inurl:next= | inurl:redir= inurl:http site:example.com
+> inurl:url= | inurl:return= | inurl:next= | inurl:redir= | inurl:ret= | inurl:r2= inurl:http site:example.com
 
 ### SQLi Prone Parameters
 
