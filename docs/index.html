@@ -181,7 +181,7 @@
                 // For intext:"example.com"
                 else if (originalDork.includes('intext:"example.com"')) {
                     const joinedDomains = domains.map(d => `intext:"${d}"`).join(" | ");
-                    originalDork = originalDork.replace(/intext:"example\[?\.\]?com"/gi, joinedDomains);
+                    originalDork = originalDork.replace(/intext:"example\.com"/gi, joinedDomains);
                 }
         
                 const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
