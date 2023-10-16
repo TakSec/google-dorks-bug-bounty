@@ -162,15 +162,21 @@
         
             if (domains.length === 0) return;
         
-            const joinedDomains = domains.join(" | ");
-        
             const dorkLinks = document.querySelectorAll(".dorkLink");
             dorkLinks.forEach((link, index) => {
-                const originalDork = originalDorks[index];
-                const updatedDork = originalDork.replace(/example(?:\[?\.\]?|\.)com/g, joinedDomains);
-                const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(updatedDork)}`;
-        
-                link.textContent = updatedDork;
+                let originalDork = originalDorks[index];
+                
+                if (/site:"?example\[?\.\]?com"?/i.test(originalDork)) {
+                    const joinedDomains = domains.map(d => `site:${d}`).join(" | ");
+                    originalDork = originalDork.replace(/site:"?example\[?\.\]?com"?/gi, joinedDomains);
+                } else if (/["']example\[?\.\]?com["']/i.test(originalDork)) {
+                    const joinedDomains = domains.map(d => `"${d}"`).join(" ");
+                    originalDork = originalDork.replace(/["']example\[?\.\]?com["']/gi, joinedDomains);
+                }
+                
+                const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
+                
+                link.textContent = originalDork;
                 link.href = updatedLink;
             });
         }
