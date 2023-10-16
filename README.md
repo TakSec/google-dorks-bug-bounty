@@ -2,6 +2,10 @@
 
 A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
+[Live Tool](https://taksec.github.io/google-dorks-bug-bounty/)
+
+![tool screenshot](https://github.com/TakSec/google-dorks-bug-bounty/assets/27094033/3ff009d7-f402-4eb2-8321-ce22eeeb5605)
+
 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec)](https://twitter.com/TakSec)
 </p>
 
