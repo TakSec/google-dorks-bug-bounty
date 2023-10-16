@@ -166,14 +166,24 @@
             dorkLinks.forEach((link, index) => {
                 let originalDork = originalDorks[index];
                 
+                // For site:example.com
                 if (/site:"?example\[?\.\]?com"?/i.test(originalDork)) {
                     const joinedDomains = domains.map(d => `site:${d}`).join(" | ");
                     originalDork = originalDork.replace(/site:"?example\[?\.\]?com"?/gi, joinedDomains);
-                } else if (/["']example\[?\.\]?com["']/i.test(originalDork)) {
+                }
+                
+                // For "example.com"
+                else if (/["']example\[?\.\]?com["']/i.test(originalDork)) {
                     const joinedDomains = domains.map(d => `"${d}"`).join(" | ");
                     originalDork = originalDork.replace(/["']example\[?\.\]?com["']/gi, joinedDomains);
                 }
                 
+                // For intext:"example.com"
+                else if (/intext:"example\[?\.\]?com"/i.test(originalDork)) {
+                    const joinedDomains = domains.map(d => `intext:"${d}"`).join(" | ");
+                    originalDork = originalDork.replace(/intext:"example\[?\.\]?com"/gi, joinedDomains);
+                }
+        
                 const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
                 
                 link.textContent = originalDork;
