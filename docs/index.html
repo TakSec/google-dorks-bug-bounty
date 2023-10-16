@@ -170,7 +170,7 @@
                     const joinedDomains = domains.map(d => `site:${d}`).join(" | ");
                     originalDork = originalDork.replace(/site:"?example\[?\.\]?com"?/gi, joinedDomains);
                 } else if (/["']example\[?\.\]?com["']/i.test(originalDork)) {
-                    const joinedDomains = domains.map(d => `"${d}"`).join(" ");
+                    const joinedDomains = domains.map(d => `"${d}"`).join(" | ");
                     originalDork = originalDork.replace(/["']example\[?\.\]?com["']/gi, joinedDomains);
                 }
                 
