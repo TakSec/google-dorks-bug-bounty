@@ -158,17 +158,20 @@
 
         function updateDomain() {
             const domainInput = document.getElementById("domainInput");
-            const domain = domainInput.value;
-            if (!domain) return;
-
-            const dorkLinks = document.querySelectorAll(".dorkLink");
-            dorkLinks.forEach((link, index) => {
-                const originalDork = originalDorks[index];
-                const updatedDork = originalDork.replace(/example(?:\[?\.\]?|\.)com/g, domain);
-                const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(updatedDork)}`;
-
-                link.textContent = updatedDork;
-                link.href = updatedLink;
+            const domains = domainInput.value.split(',').map(d => d.trim());
+            if (!domains.length) return;
+        
+            const dorkList = document.getElementById("dorkList");
+            dorkList.innerHTML = "";  // Clear existing list
+        
+            domains.forEach(domain => {
+                originalDorks.forEach((originalDork, index) => {
+                    const updatedDork = originalDork.replace(/example(?:\[?\.\]?|\.)com/g, domain);
+                    const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(updatedDork)}`;
+        
+                    const listItem = createDorkListItem(updatedDork, prevTitle);
+                    dorkList.appendChild(listItem);
+                });
             });
         }
 
