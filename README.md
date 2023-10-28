@@ -1,8 +1,10 @@
 # Google Dorks for Bug Bounty
 
+**NOTE** This fork is slightly changed and hosted with [CloudFlare Pages](https://pages.cloudflare.com/) at [googledorks.offsec.nl](https://googledorks.offsec.nl/).
+
 A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
-[Live Tool](https://taksec.github.io/google-dorks-bug-bounty/)
+[Live Tool](https://googledorks.offsec.nl)
 
 ![tool screenshot](https://github.com/TakSec/google-dorks-bug-bounty/assets/27094033/3ff009d7-f402-4eb2-8321-ce22eeeb5605)
 
