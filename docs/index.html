@@ -75,6 +75,14 @@
         ul.link-list li {
             margin-bottom: 10px;
         }
+        .hidden { display: none; }
+        #tooltip {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
     </style>
 </head>
 <body>
@@ -86,8 +94,9 @@
         </a><br><br>
     </p>
     <label for="domainInput">Enter a domain:</label>
-    <input type="text" id="domainInput" placeholder="example.com">
-    <button id="updateDomainButton">Update Domain</button>
+    <input type="text" id="domainInput" placeholder="example.com" oninput="updateDomain()">
+    <div id="tooltip" class="hidden">For multiple domains, separate by comma. e.g., example1.com, example2.com</div>
+
     <ul id="dorkList"></ul>
     <section>
         <h2>Additional Resources</h2>
@@ -99,37 +108,53 @@
         </ul>
     </section>
     <script>
-        let originalDorks = [];
+    const domainInput = document.getElementById('domainInput');
+    const tooltip = document.getElementById('tooltip');
 
-        async function fetchDorks() {
-            const url = "https://raw.githubusercontent.com/TakSec/google-dorks-bug-bounty/main/README.md";
-            const response = await fetch(url);
-            const text = await response.text();
+    domainInput.addEventListener('mouseover', function() {
+        tooltip.style.display = 'block';
+        tooltip.style.left = domainInput.offsetLeft + 'px';
+        tooltip.style.top = (domainInput.offsetTop + domainInput.offsetHeight + 5) + 'px';
+    });
 
-            const dorkList = document.getElementById("dorkList");
-            const regex = /(?:^### (.+)|^> (.+))/gm;
-            let match;
-            let title = '';
-            let firstDork = true;
+    domainInput.addEventListener('mouseout', function() {
+        tooltip.style.display = 'none';
+    });
+    
+    let originalDorks = [];
+    let stopAppending = false;  // Flag to stop appending new dorks
 
-            while ((match = regex.exec(text)) !== null) {
-                if (match[1]) {
-                    // Title match
-                    title = match[1];
-                } else {
-                    // Dork match
-                    if (firstDork) {
-                        firstDork = false;
-                        continue;
-                    }
-                    const dork = match[2];
-                    originalDorks.push(dork);
-                    const listItem = createDorkListItem(dork, title);
-                    dorkList.appendChild(listItem);
+    async function fetchDorks() {
+        const url = "https://raw.githubusercontent.com/TakSec/google-dorks-bug-bounty/main/README.md";
+        const response = await fetch(url);
+        const text = await response.text();
+
+        const dorkList = document.getElementById("dorkList");
+        const regex = /(?:^### (.+)|^> (.+))/gm;
+        let match;
+        let title = '';
+        let firstDork = true;
+
+        while ((match = regex.exec(text)) !== null) {
+            if (match[1]) {
+                // Title match
+                title = match[1];
+                if (title === "Dorks that work better w/o domain") {
+                    stopAppending = true;  // Set the flag to stop appending when this title is encountered
                 }
+            } else if (match[2] && !stopAppending) {
+                // Dork match
+                if (firstDork) {
+                    firstDork = false;
+                    continue;
+                }
+                const dork = match[2];
+                originalDorks.push(dork);
+                const listItem = createDorkListItem(dork, title);
+                dorkList.appendChild(listItem);
             }
         }
-
+    }
         let prevTitle = '';
 
         function createDorkListItem(dork, description) {
@@ -166,6 +191,11 @@
             dorkLinks.forEach((link, index) => {
                 let originalDork = originalDorks[index];
                 
+                // Check if the dork is related to Drupal and skip modification
+                if (originalDork.includes("Drupal")) {
+                    return; // Skip any modification if it's a Drupal related dork
+                }
+
                 // For site:example.com
                 if (/site:"?example\[?\.\]?com"?/i.test(originalDork)) {
                     const joinedDomains = domains.map(d => `site:${d}`).join(" | ");
@@ -178,22 +208,25 @@
                     originalDork = originalDork.replace(/["']example\[?\.\]?com["']/gi, joinedDomains);
                 }
                 
-                // For intext:"example.com"
-                else if (originalDork.includes('intext:"example.com"')) {
+                // For intext:"example.com" and similar patterns
+                const intextPattern = /intext:"example\.com"/gi;
+                if (intextPattern.test(originalDork)) {
                     const joinedDomains = domains.map(d => `intext:"${d}"`).join(" | ");
-                    originalDork = originalDork.replace(/intext:"example\.com"/gi, joinedDomains);
+                    updatedDork = originalDork.replace(intextPattern, joinedDomains);
                 }
-        
+                // Update intext:"" for all domains after the first
+                if (originalDork.includes('intext:"')) {
+                    const joinedDomains = domains.map((d, idx) => idx === 0 ? `intext:"${d}"` : `intext:"${d}"`).join(" | ");
+                    originalDork = originalDork.replace(/intext:"([^"]+)"/gi, joinedDomains);
+                    originalDork = originalDork.replace(/ \| "([^"]+)"/gi, " | ");
+                }
+
                 const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
-                
+            
                 link.textContent = originalDork;
                 link.href = updatedLink;
             });
         }
-
-        const updateDomainButton = document.getElementById("updateDomainButton");
-        updateDomainButton.addEventListener("click", updateDomain);
-
         fetchDorks();
     </script>
 </body>
