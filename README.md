@@ -101,6 +101,10 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > site:docs.google.com inurl:"/d/" "example[.]com"
 
+### Adobe Experience Manager (AEM)
+
+> inurl:/content/usergenerated | inurl:/content/dam | inurl:/jcr:content | inurl:/libs/granite | inurl:/etc/clientlibs | inurl:/content/geometrixx | inurl:/bin/wcm | inurl:/crx/de site:example[.]com
+
 ### JFrog Artifactory
 
 > site:jfrog.io "example[.]com"
