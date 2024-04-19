@@ -122,8 +122,7 @@
     });
     
     let originalDorks = [];
-    let stopAppending = false;  // Flag to stop appending new dorks
-
+    
     async function fetchDorks() {
         const url = "https://raw.githubusercontent.com/TakSec/google-dorks-bug-bounty/main/README.md";
         const response = await fetch(url);
@@ -139,10 +138,7 @@
     if (match[1]) {
         // Title match
         title = match[1];
-        if (title === "Dorks that work better w/o domain") {
-            stopAppending = true;  // Set the flag to stop appending when this title is encountered
-        }
-    } else if (match[2] && !stopAppending) {
+    } else if (match[2]) {
         // Dork match
         const dork = match[2].trim();
         originalDorks.push(dork);
@@ -150,10 +146,13 @@
         dorkList.appendChild(listItem);
     }
 }
+filterDorks();
+
 ``
 
     }
-        let prevTitle = '';
+        
+    let prevTitle = '';
 
         function createDorkListItem(dork, description) {
             const googleLink = `https://www.google.com/search?q=${encodeURIComponent(dork)}`;
@@ -225,7 +224,18 @@
                 link.href = updatedLink;
             });
         }
+        
         fetchDorks();
+        
+        function filterDorks() {
+    const dorkItems = document.querySelectorAll("#dorkList li");
+    dorkItems.forEach(item => {
+        if (item.textContent.toLowerCase().includes("omit")) {
+            item.style.display = "none";
+        }
+    });
+}
+
     </script>
 </body>
 </html>
