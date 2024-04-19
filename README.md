@@ -61,7 +61,9 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 ### API Endpoints
 
-> inurl:api | site:&#x2A;/rest | site:&#x2A;/v1 | site:&#x2A;/v2 | site:&#x2A;/v3 site:example[.]com
+```
+inurl:api | site:*/rest | site:*/v1 | site:*/v2 | site:*/v3 site:example[.]com
+```
 
 ### API Docs
 
