@@ -130,25 +130,24 @@
         const text = await response.text();
 
         const dorkList = document.getElementById("dorkList");
-        const regex = /(?:^### (.+)|```([^`]+)```)/gm;
+        const regex = /(?:^### (.+?)( <!--omit-->)?|```([^`]+)```)/gm;
         let match;
         let title = '';
-        let firstDork = true;
+        let shouldOmit = false;
 
         while ((match = regex.exec(text)) !== null) {
     if (match[1]) {
         // Title match
         title = match[1];
+        shouldOmit = !!match[2]; // Check for the presence of the <!--omit--> comment
         if (title === "Dorks that work better w/o domain") {
             stopAppending = true;  // Set the flag to stop appending when this title is encountered
         }
-    } else if (match[2] && !stopAppending) {
-        // Dork match
-        const dork = match[2].trim();
-        originalDorks.push(dork);
-        const listItem = createDorkListItem(dork, title);
-        dorkList.appendChild(listItem);
-    }
+    } else if (match[3] && !shouldOmit) {
+            const dork = match[3].trim();
+            const listItem = createDorkListItem(dork, title);
+            dorkList.appendChild(listItem);
+        }
 }
 ``
 
@@ -156,7 +155,7 @@
         let prevTitle = '';
 
         function createDorkListItem(dork, description) {
-            const googleLink = `https://www.google.com/search?q=${encodeURIComponent(dork)}`;
+            const googleLink = `https://www.google.com/search?q=${encodeURIComponent(dork)}&filter=0`;
 
             const listItem = document.createElement("li");
 

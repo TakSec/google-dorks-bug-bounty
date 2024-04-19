@@ -11,7 +11,7 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 ---
 
-### Broad domain search w/ negative search
+### Broad domain search w/ negative search <!--omit-->
 
 ```
 site:example.com -www -shop -share -ir -mfa
@@ -193,7 +193,7 @@ site:example.com ”choose file”
 
 ## Dorks that work better w/o domain
 
-### Bug Bounty programs and Vulnerability Disclosure Programs
+### Bug Bounty programs and Vulnerability Disclosure Programs <!--omit-->
 
 ```
 "submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone"
@@ -203,25 +203,25 @@ site:example.com ”choose file”
 site:*/security.txt "bounty"
 ```
 
-### Apache Server Status Exposed
+### Apache Server Status Exposed <!--omit-->
 
 ```
 site:*/server-status apache
 ```
 
-### WordPress
+### WordPress <!--omit-->
 
 ```
 inurl:/wp-admin/admin-ajax.php
 ```
 
-### Drupal
+### Drupal <!--omit-->
 
 ```
 intext:"Powered by" & intext:Drupal & inurl:user
 ```
 
-### Joomla
+### Joomla <!--omit-->
 
 ```
 site:*/joomla/login
