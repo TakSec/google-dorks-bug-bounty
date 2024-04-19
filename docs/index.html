@@ -133,22 +133,26 @@
         const regex = /(?:^### (.+)|```([^`]+)```)/gm;
         let match;
         let title = '';
-        let shouldOmit = false;
+        let firstDork = true;
 
         while ((match = regex.exec(text)) !== null) {
-    if (match[1]) { // This is a title match
+    if (match[1]) {
+        // Title match
         title = match[1];
-        shouldOmit = title.includes("<!--omit-->"); // Check if title includes the omit flag
-        if (shouldOmit) {
-            title = title.replace("<!--omit-->", "").trim(); // Clean the title if omitting
+        if (title === "Dorks that work better w/o domain") {
+            stopAppending = true;  // Set the flag to stop appending when this title is encountered
         }
-    } else if (match[2] && !shouldOmit) { // This is a dork match and should not be omitted
+    } else if (match[2] && !stopAppending) {
+        // Dork match
         const dork = match[2].trim();
+        originalDorks.push(dork);
         const listItem = createDorkListItem(dork, title);
         dorkList.appendChild(listItem);
     }
 }
-}
+``
+
+    }
         let prevTitle = '';
 
         function createDorkListItem(dork, description) {
@@ -176,32 +180,51 @@
         }
 
         function updateDomain() {
-    const domainInput = document.getElementById("domainInput");
-    if (!domainInput) return;  // Ensure the input element exists
-    const domains = domainInput.value.split(",").map(domain => domain.trim());
-
-    if (domains.length === 0 || !domains[0]) return;  // Exit if no domains are entered
-
-    const dorkLinks = document.querySelectorAll(".dorkLink");
-    if (!dorkLinks.length) return;  // Check if there are any dork links to process
-
-    dorkLinks.forEach((link, index) => {
-        if (!originalDorks[index]) return;  // Ensure the original dork exists at this index
-
-        let originalDork = originalDorks[index];
+            const domainInput = document.getElementById("domainInput");
+            const domains = domainInput.value.split(",").map(domain => domain.trim());
         
-        // Use a more robust check to handle potential undefined values
-        if (originalDork && typeof originalDork === 'string') {
-            // Replace example.com with actual domain inputs in the dork string
-            const domainPattern = /example\[?\.\]?com/gi;
-            const joinedDomains = domains.map(d => `"${d}"`).join(" | ");
-            let updatedDork = originalDork.replace(domainPattern, joinedDomains);
+            if (domains.length === 0) return;
+        
+            const dorkLinks = document.querySelectorAll(".dorkLink");
+            dorkLinks.forEach((link, index) => {
+                let originalDork = originalDorks[index];
+                
+                // Check if the dork is related to Drupal and skip modification
+                if (originalDork.includes("Drupal")) {
+                    return; // Skip any modification if it's a Drupal related dork
+                }
 
-            link.textContent = updatedDork;
-            link.href = `https://www.google.com/search?q=${encodeURIComponent(updatedDork)}&filter=0`;
+                // For site:example.com
+                if (/site:"?example\[?\.\]?com"?/i.test(originalDork)) {
+                    const joinedDomains = domains.map(d => `site:${d}`).join(" | ");
+                    originalDork = originalDork.replace(/site:"?example\[?\.\]?com"?/gi, joinedDomains);
+                }
+                
+                // For "example.com"
+                else if (/["']example\[?\.\]?com["']/i.test(originalDork)) {
+                    const joinedDomains = domains.map(d => `"${d}"`).join(" | ");
+                    originalDork = originalDork.replace(/["']example\[?\.\]?com["']/gi, joinedDomains);
+                }
+                
+                // For intext:"example.com" and similar patterns
+                const intextPattern = /intext:"example\.com"/gi;
+                if (intextPattern.test(originalDork)) {
+                    const joinedDomains = domains.map(d => `intext:"${d}"`).join(" | ");
+                    updatedDork = originalDork.replace(intextPattern, joinedDomains);
+                }
+                // Update intext:"" for all domains after the first
+                if (originalDork.includes('intext:"')) {
+                    const joinedDomains = domains.map((d, idx) => idx === 0 ? `intext:"${d}"` : `intext:"${d}"`).join(" | ");
+                    originalDork = originalDork.replace(/intext:"([^"]+)"/gi, joinedDomains);
+                    originalDork = originalDork.replace(/ \| "([^"]+)"/gi, " | ");
+                }
+
+                const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
+            
+                link.textContent = originalDork;
+                link.href = updatedLink;
+            });
         }
-    });
-}
         fetchDorks();
     </script>
 </body>
