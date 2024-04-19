@@ -59,6 +59,10 @@ A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
 > inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
 
+### API Endpoints
+
+> site:example[.]com inurl:api | site:*/rest | site:*/v1 | site:*/v2 | site:*/v3
+
 ### API Docs
 
 > inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
