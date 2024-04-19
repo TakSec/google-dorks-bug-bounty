@@ -86,7 +86,7 @@ inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:examp
 ### API Endpoints
 
 ```
-inurl:api | site:*/rest | site:*/v1 | site:*/v2 | site:*/v3 site:example[.]com
+site:example[.]com inurl:api | site:*/rest | site:*/v1 | site:*/v2 | site:*/v3
 ```
 
 ### API Docs
