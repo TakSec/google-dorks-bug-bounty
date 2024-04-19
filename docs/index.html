@@ -130,30 +130,28 @@
         const text = await response.text();
 
         const dorkList = document.getElementById("dorkList");
-        const regex = /(?:^### (.+)|^> (.+))/gm;
+        const regex = /(?:^### (.+)|```([^`]+)```)/gm;
         let match;
         let title = '';
         let firstDork = true;
 
         while ((match = regex.exec(text)) !== null) {
-            if (match[1]) {
-                // Title match
-                title = match[1];
-                if (title === "Dorks that work better w/o domain") {
-                    stopAppending = true;  // Set the flag to stop appending when this title is encountered
-                }
-            } else if (match[2] && !stopAppending) {
-                // Dork match
-                if (firstDork) {
-                    firstDork = false;
-                    continue;
-                }
-                const dork = match[2];
-                originalDorks.push(dork);
-                const listItem = createDorkListItem(dork, title);
-                dorkList.appendChild(listItem);
-            }
+    if (match[1]) {
+        // Title match
+        title = match[1];
+        if (title === "Dorks that work better w/o domain") {
+            stopAppending = true;  // Set the flag to stop appending when this title is encountered
         }
+    } else if (match[2] && !stopAppending) {
+        // Dork match
+        const dork = match[2].trim();
+        originalDorks.push(dork);
+        const listItem = createDorkListItem(dork, title);
+        dorkList.appendChild(listItem);
+    }
+}
+``
+
     }
         let prevTitle = '';
 
