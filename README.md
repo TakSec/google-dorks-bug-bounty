@@ -95,6 +95,12 @@ site:example[.]com inurl:api | site:*/rest | site:*/v1 | site:*/v2 | site:*/v3
 inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
 ```
 
+### Login Pages
+
+```
+inurl:login | inurl:signin | intitle:login | intitle:signin | inurl:secure site:example[.]com
+```
+
 ### Code Leaks
 
 ```
