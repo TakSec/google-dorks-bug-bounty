@@ -101,6 +101,13 @@ inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"exampl
 inurl:login | inurl:signin | intitle:login | intitle:signin | inurl:secure site:example[.]com
 ```
 
+### Sensitive Documents
+
+```
+site:example.com ext:txt | ext:pdf | ext:xml | ext:xls | ext:xlsx | ext:ppt | ext:pptx | ext:doc | ext:docx
+intext:“confidential” | intext:“Not for Public Release” | intext:”internal use only” | intext:“do not distribute”
+```
+
 ### Code Leaks
 
 ```
