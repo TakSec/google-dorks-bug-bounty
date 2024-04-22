@@ -77,6 +77,12 @@ inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | 
 inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
 ```
 
+### Server Errors
+
+```
+inurl:"error" | intitle:"exception" | intitle:"failure" | intitle:"server at" | inurl:exception | "database error" | "SQL syntax" | "undefined index" | "unhandled exception" | "stack trace" site:example[.]com
+```
+
 ### Sensitive Parameters
 
 ```
