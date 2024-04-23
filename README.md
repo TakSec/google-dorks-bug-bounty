@@ -74,7 +74,7 @@ inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | 
 ### High % inurl keywords
 
 ```
-inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
+inurl:conf | inurl:env | inurl:cgi | inurl:bin | inurl:etc | inurl:root | inurl:sql | inurl:backup | inurl:admin | inurl:php  site:example[.]com
 ```
 
 ### Server Errors
