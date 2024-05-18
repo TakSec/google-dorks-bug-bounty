@@ -23,16 +23,28 @@ site:example.com -www -shop -share -ir -mfa
 site:example.com ext:php inurl:?
 ```
 
-### Disclosed XSS and Open Redirects
+### API Endpoints
 
 ```
-site:openbugbounty.org inurl:reports intext:"example.com"
+site:example[.]com inurl:api | site:*/rest | site:*/v1 | site:*/v2 | site:*/v3
 ```
 
 ### Juicy Extensions
 
 ```
 site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess | ext:json
+```
+
+### High % inurl keywords
+
+```
+inurl:conf | inurl:env | inurl:cgi | inurl:bin | inurl:etc | inurl:root | inurl:sql | inurl:backup | inurl:admin | inurl:php site:example[.]com
+```
+
+### Server Errors
+
+```
+inurl:"error" | intitle:"exception" | intitle:"failure" | intitle:"server at" | inurl:exception | "database error" | "SQL syntax" | "undefined index" | "unhandled exception" | "stack trace" site:example[.]com
 ```
 
 ### XSS prone parameters
@@ -71,28 +83,10 @@ inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:
 inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= inurl:& site:example.com
 ```
 
-### High % inurl keywords
+### File upload endpoints
 
 ```
-inurl:conf | inurl:env | inurl:cgi | inurl:bin | inurl:etc | inurl:root | inurl:sql | inurl:backup | inurl:admin | inurl:php site:example[.]com
-```
-
-### Server Errors
-
-```
-inurl:"error" | intitle:"exception" | intitle:"failure" | intitle:"server at" | inurl:exception | "database error" | "SQL syntax" | "undefined index" | "unhandled exception" | "stack trace" site:example[.]com
-```
-
-### Sensitive Parameters
-
-```
-inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
-```
-
-### API Endpoints
-
-```
-site:example[.]com inurl:api | site:*/rest | site:*/v1 | site:*/v2 | site:*/v3
+site:example.com ”choose file”
 ```
 
 ### API Docs
@@ -112,6 +106,24 @@ inurl:login | inurl:signin | intitle:login | intitle:signin | inurl:secure site:
 ```
 site:example.com ext:txt | ext:pdf | ext:xml | ext:xls | ext:xlsx | ext:ppt | ext:pptx | ext:doc | ext:docx
 intext:“confidential” | intext:“Not for Public Release” | intext:”internal use only” | intext:“do not distribute”
+```
+
+### Sensitive Parameters
+
+```
+inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
+```
+
+### Adobe Experience Manager (AEM)
+
+```
+inurl:/content/usergenerated | inurl:/content/dam | inurl:/jcr:content | inurl:/libs/granite | inurl:/etc/clientlibs | inurl:/content/geometrixx | inurl:/bin/wcm | inurl:/crx/de site:example[.]com
+```
+
+### Disclosed XSS and Open Redirects
+
+```
+site:openbugbounty.org inurl:reports intext:"example.com"
 ```
 
 ### Code Leaks
@@ -186,12 +198,6 @@ site:box.com/s "example[.]com"
 site:docs.google.com inurl:"/d/" "example[.]com"
 ```
 
-### Adobe Experience Manager (AEM)
-
-```
-inurl:/content/usergenerated | inurl:/content/dam | inurl:/jcr:content | inurl:/libs/granite | inurl:/etc/clientlibs | inurl:/content/geometrixx | inurl:/bin/wcm | inurl:/crx/de site:example[.]com
-```
-
 ### JFrog Artifactory
 
 ```
@@ -202,12 +208,6 @@ site:jfrog.io "example[.]com"
 
 ```
 site:firebaseio.com "example[.]com"
-```
-
-### File upload endpoints
-
-```
-site:example.com ”choose file”
 ```
 
 ## Dorks that work better w/o domain
