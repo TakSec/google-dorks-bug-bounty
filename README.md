@@ -126,6 +126,12 @@ inurl:/content/usergenerated | inurl:/content/dam | inurl:/jcr:content | inurl:/
 site:openbugbounty.org inurl:reports intext:"example.com"
 ```
 
+### Google Groups
+
+```
+site:groups.google.com "example.com"
+```
+
 ### Code Leaks
 
 ```
