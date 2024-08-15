@@ -101,6 +101,12 @@ inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"exampl
 inurl:login | inurl:signin | intitle:login | intitle:signin | inurl:secure site:example[.]com
 ```
 
+### Test Environments
+
+```
+inurl:test | inurl:env | inurl:dev | inurl:staging | inurl:sandbox | inurl:debug | inurl:temp | inurl:internal | inurl:demo site:example.com
+```
+
 ### Sensitive Documents
 
 ```
