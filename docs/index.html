@@ -3,239 +3,450 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Dorks for Bug Bounty</title>
+    <title>Exclusive - Premier Online Shopping</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #212121;
-            color: #f0f0f0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        label {
-            font-size: 1.2em;
-        }
-        input {
-            font-size: 1em;
-            padding: 5px;
-            margin-left: 5px;
-        }
-        button {
-            font-size: 1em;
-            background-color: #4CAF50;
+        .banner {
+            background-color: #000000;
             color: white;
-            border: none;
-            padding: 6px 12px;
-            cursor: pointer;
-            margin-left: 5px;
         }
-        button:hover {
-            background-color: #45a049;
+        .feature-icon {
+            font-size: 2rem;
+            color: #070707;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .founder-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
         }
-        li {
+        .stat-box {
+            width: 250px;
+            height: 250px;
+            padding: 20px;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            box-shadow: 0 12px 6px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            margin: 20px;
+        }
+
+        .stat-icon {
+            font-size: 40px;
             margin-bottom: 10px;
         }
-        a {
-            text-decoration: none;
-            color: #69f0ae;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        p {
-            margin: 0;
-        }
-        p.description {
-            margin-bottom: 5px;
+
+        .stat-value {
+            font-size: 30px;
             font-weight: bold;
         }
-        section {
-            margin-top: 20px;
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
+
+        .stat-text {
+            font-size: 18px;
         }
-        h2 {
+        .team-member {
+            text-align: center;
+            padding: 20px;
+        }
+        .team-member img {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
             margin-bottom: 10px;
         }
-        ul.link-list {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
+        .social-links a {
+            margin: 0 8px;
+            font-size: 1.1rem;
         }
-        ul.link-list li {
-            margin-bottom: 10px;
+        
+        .social-links a:hover {
+            opacity: 0.7;
         }
-        .hidden { display: none; }
-        #tooltip {
-        position: absolute;
-        background-color: black;
-        color: white;
-        padding: 5px;
-        border-radius: 5px;
-    }
+        .features-section .feature-icon-wrapper {
+            display: inline-block;
+            padding: 10px;
+        }
+        
+        .feature-icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: black;
+        }
+        
+        h4 {
+            font-weight: bold;
+        }
+        
+        p {
+            font-size: 14px;
+            color: #555;
+        }
+        .footer {
+            background-color: #000; /* Dark background */
+        }
+        
+        .footer h5 {
+            font-weight: bold;
+        }
+        
+        .footer p, .footer a {
+            font-size: 14px;
+            color: #b5b5b5; /* Light gray text */
+        }
+        
+        .footer .input-group {
+            max-width: 250px;
+        }
+        
+        .footer .btn {
+            border: none;
+        }
+        
+        .footer .social-icons i {
+            font-size: 1.5rem;
+        }
+        
+        .footer .app-buttons img {
+            max-width: 120px;
+        }
+        
+        .footer .social-icons a {
+            color: #b5b5b5;
+            transition: color 0.3s ease;
+        }
+        
+        .footer .social-icons a:hover {
+            color: white;
+        }
+        
+        .footer .list-unstyled a:hover {
+            color: white;
+        }
+        .our-story {
+            background-color: #fff; /* Background color for the section */
+        }
+        
+        .our-story h2 {
+            font-family: 'Arial', sans-serif; /* Optional: customize font */
+            color: #333; /* Dark text color */
+        }
+        
+        .our-story p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .our-story img {
+            border-radius: 10px; /* Rounded corners for the image */
+        }
+        
+        @media (max-width: 768px) {
+            .our-story .row {
+                flex-direction: column-reverse; /* Stack text and image vertically on smaller screens */
+            }
+        }
+        
+        
+        
     </style>
 </head>
 <body>
-    <h1>Google Dorks for Bug Bounty</h1>
-    <p>
-        <a href="https://twitter.com/TakSec" target="_blank">
-            <img src="https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec" alt="Twitter Follow Badge">
-        <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">GitHub Repo</a>
-        </a><br><br>
-    </p>
-    <label for="domainInput">Enter a domain:</label>
-    <input type="text" id="domainInput" placeholder="example.com" oninput="updateDomain()">
-    <div id="tooltip" class="hidden">For multiple domains, separate by comma. e.g., example1.com, example2.com</div>
+    <!-- Banner -->
+    <div class="banner py-2 text-center">
+        <p class="m-0">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#" class="text-white">ShopNow</a></p>
+    </div>
 
-    <ul id="dorkList"></ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Exclusive</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Our Story Section -->
+<section class="our-story py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Text Section -->
+            <div class="col-md-6">
+                <h2 class="display-4 fw-bold">Our Story</h2>
+                <p>
+                    Launched in 2015, Exclusive is South Asia’s premier online shopping marketplace 
+                    with an active presence in Bangladesh. Supported by a wide range of tailored 
+                    marketing, data, and service solutions, Exclusive has 10,500 sellers and 300 
+                    brands, serving 3 million customers across the region.
+                </p>
+                <p>
+                    Exclusive has more than 1 million products to offer, growing very fast. Exclusive 
+                    offers a diverse assortment of categories ranging from consumer products.
+                </p>
+            </div>
+
+            <!-- Image Section -->
+            <div class="col-md-6">
+                <img src="https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Shopping Image" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+
     <section>
-        <h2>Additional Resources</h2>
-        <ul class="link-list">
-            <li><a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">Google Dorks For Bug Bounty</a></li>
-            <li><a href="https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906" target="_blank">5 Google Dorks Every Hacker Needs to Know</a></li>
-            <li><a href="https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d" target="_blank">Uncover Hidden Gems in the Cloud with Google Dorks</a></li>
-            <li><a href="https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12" target="_blank">10 Google Dorks for Sensitive Data</a></li>
-        </ul>
+        <div class="container mt-5">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="bi bi-shop"></i>
+                        </div>
+                        <div class="stat-value">10.5k</div>
+                        <div class="stat-text">Sellers active our site</div>
+                    </div>
+                </div>
+        
+                <div class="col-md-3">
+                    <div class="stat-box red">
+                        <div class="stat-icon">
+                            <i class="bi bi-cash-stack"></i>
+                        </div>
+                        <div class="stat-value">33k</div>
+                        <div class="stat-text">Monthly Product Sale</div>
+                    </div>
+                </div>
+        
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="bi bi-gift"></i>
+                        </div>
+                        <div class="stat-value">45.5k</div>
+                        <div class="stat-text">Customer active in our site</div>
+                    </div>
+                </div>
+        
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="bi bi-wallet"></i>
+                        </div>
+                        <div class="stat-value">25k</div>
+                        <div class="stat-text">Annual gross sale in our site</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <script>
-    const domainInput = document.getElementById('domainInput');
-    const tooltip = document.getElementById('tooltip');
 
-    domainInput.addEventListener('mouseover', function() {
-        tooltip.style.display = 'block';
-        tooltip.style.left = domainInput.offsetLeft + 'px';
-        tooltip.style.top = (domainInput.offsetTop + domainInput.offsetHeight + 5) + 'px';
-    });
-
-    domainInput.addEventListener('mouseout', function() {
-        tooltip.style.display = 'none';
-    });
+    <!-- Team -->
+    <section>
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Team Member 1 -->
+                <h2 class="text-center mb-4">Our Team Member</h2>
+                <div class="col-md-4 team-member">
+                    <img src="https://images.pexels.com/photos/7562180/pexels-photo-7562180.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tom Cruise">
+                    <h3>Tom Cruise</h3>
+                    <p>Founder & Chairman</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" target="_blank" class="text-primary">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-danger">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" class="text-info">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
     
-    let originalDorks = [];
+                <!-- Team Member 2 -->
+                <div class="col-md-4 team-member">
+                    <img src="https://images.pexels.com/photos/18892681/pexels-photo-18892681/free-photo-of-blonde-model-in-shadow.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Emma Watson">
+                    <h3>Emma Watson</h3>
+                    <p>Managing Director</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" target="_blank" class="text-primary">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-danger">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" class="text-info">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
     
-    async function fetchDorks() {
-        const url = "https://raw.githubusercontent.com/TakSec/google-dorks-bug-bounty/main/README.md";
-        const response = await fetch(url);
-        const text = await response.text();
+                <!-- Team Member 3 -->
+                <div class="col-md-4 team-member">
+                    <img src="https://images.pexels.com/photos/5427535/pexels-photo-5427535.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Will Smith">
+                    <h3>Will Smith</h3>
+                    <p>Product Designer</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" target="_blank" class="text-primary">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-danger">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" class="text-info">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+ <!-- Features Section -->
+<section class="features-section py-5">
+    <h2 class="text-center mb-4">Featuress</h2>
+    <br>
+    <div class="container">
+        <div class="row text-center">
+            <!-- Feature 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon-circle">
+                        <i class="bi bi-truck feature-icon"></i>
+                    </div>
+                </div>
+                <h4>FREE AND FAST DELIVERY</h4>
+                <p>Free delivery for all orders over $140</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon-circle">
+                        <i class="bi bi-headset feature-icon"></i>
+                    </div>
+                </div>
+                <h4>24/7 CUSTOMER SERVICE</h4>
+                <p>Friendly 24/7 customer support</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon-circle">
+                        <i class="bi bi-shield-check feature-icon"></i>
+                    </div>
+                </div>
+                <h4>MONEY BACK GUARANTEE</h4>
+                <p>We return money within 30 days</p>
+            </div>
+        </div>
+    </div>
 
-        const dorkList = document.getElementById("dorkList");
-        const regex = /(?:^### (.+)|```([^`]+)```)/gm;
-        let match;
-        let title = '';
-        let firstDork = true;
-
-        while ((match = regex.exec(text)) !== null) {
-    if (match[1]) {
-        // Title match
-        title = match[1];
-    } else if (match[2]) {
-        // Dork match
-        const dork = match[2].trim();
-        originalDorks.push(dork);
-        const listItem = createDorkListItem(dork, title);
-        dorkList.appendChild(listItem);
-    }
-}
-filterDorks();
-
-``
-
-    }
-        
-    let prevTitle = '';
-
-        function createDorkListItem(dork, description) {
-            const googleLink = `https://www.google.com/search?q=${encodeURIComponent(dork)}`;
-
-            const listItem = document.createElement("li");
-
-            if (description && description !== prevTitle) {
-                const desc = document.createElement("p");
-                desc.textContent = description;
-                desc.classList.add("description");
-                listItem.appendChild(desc);
-                prevTitle = description;
-            }
-
-            const link = document.createElement("a");
-            link.href = googleLink;
-            link.textContent = dork;
-            link.classList.add("dorkLink");
-            link.target = "_blank";
-
-            listItem.appendChild(link);
-
-            return listItem;
-        }
-
-        function updateDomain() {
-            const domainInput = document.getElementById("domainInput");
-            const domains = domainInput.value.split(",").map(domain => domain.trim());
-        
-            if (domains.length === 0) return;
-        
-            const dorkLinks = document.querySelectorAll(".dorkLink");
-            dorkLinks.forEach((link, index) => {
-                let originalDork = originalDorks[index];
-                
-                // Check if the dork is related to Drupal and skip modification
-                if (originalDork.includes("Drupal")) {
-                    return; // Skip any modification if it's a Drupal related dork
-                }
-
-                // For site:example.com
-                if (/site:"?example\[?\.\]?com"?/i.test(originalDork)) {
-                    const joinedDomains = domains.map(d => `site:${d}`).join(" | ");
-                    originalDork = originalDork.replace(/site:"?example\[?\.\]?com"?/gi, joinedDomains);
-                }
-                
-                // For "example.com"
-                else if (/["']example\[?\.\]?com["']/i.test(originalDork)) {
-                    const joinedDomains = domains.map(d => `"${d}"`).join(" | ");
-                    originalDork = originalDork.replace(/["']example\[?\.\]?com["']/gi, joinedDomains);
-                }
-                
-                // For intext:"example.com" and similar patterns
-                const intextPattern = /intext:"example\.com"/gi;
-                if (intextPattern.test(originalDork)) {
-                    const joinedDomains = domains.map(d => `intext:"${d}"`).join(" | ");
-                    updatedDork = originalDork.replace(intextPattern, joinedDomains);
-                }
-                // Update intext:"" for all domains after the first
-                if (originalDork.includes('intext:"')) {
-                    const joinedDomains = domains.map((d, idx) => idx === 0 ? `intext:"${d}"` : `intext:"${d}"`).join(" | ");
-                    originalDork = originalDork.replace(/intext:"([^"]+)"/gi, joinedDomains);
-                    originalDork = originalDork.replace(/ \| "([^"]+)"/gi, " | ");
-                }
-
-                const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
+</section>
+<br>
+<br>
+ <!-- Footer Section -->
+<footer class="footer bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Subscribe Section -->
+            <div class="col-md-3 mb-4">
+                <h5>Exclusive</h5>
+                <p>Subscribe</p>
+                <p>Get 10% off your first order</p>
+                <form action="#" class="footer-form">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email">
+                        <button class="btn btn-outline-light" type="submit">
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
             
-                link.textContent = originalDork;
-                link.href = updatedLink;
-            });
-        }
-        
-        fetchDorks();
-        
-        function filterDorks() {
-    const dorkItems = document.querySelectorAll("#dorkList li");
-    dorkItems.forEach(item => {
-        if (item.textContent.toLowerCase().includes("omit")) {
-            item.style.display = "none";
-        }
-    });
-}
+            <!-- Support Section -->
+            <div class="col-md-3 mb-4">
+                <h5>Support</h5>
+                <p>111 Bijoy Sarani, Dhaka, DH 1515, Bangladesh</p>
+                <p>exclusive@gmail.com</p>
+                <p>+88015-88888-9999</p>
+            </div>
 
-    </script>
+            <!-- Account Section -->
+            <div class="col-md-2 mb-4">
+                <h5>Account</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light">My Account</a></li>
+                    <li><a href="#" class="text-light">Login / Register</a></li>
+                    <li><a href="#" class="text-light">Cart</a></li>
+                    <li><a href="#" class="text-light">Wishlist</a></li>
+                    <li><a href="#" class="text-light">Shop</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="col-md-2 mb-4">
+                <h5>Quick Link</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light">Privacy Policy</a></li>
+                    <li><a href="#" class="text-light">Terms of Use</a></li>
+                    <li><a href="#" class="text-light">FAQ</a></li>
+                    <li><a href="#" class="text-light">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Download App Section -->
+            <div class="col-md-2 mb-4">
+                <h5>Download App</h5>
+                <p>Save $3 with App New User Only</p>
+                <a href="#" class="img-fluid mb-2t">QR Code</a>
+                <div class="app-buttons">
+                    <a href="#" class="text-light">Google Play</a>
+                    <a href="#" class="text-light">App Store</a>
+                </div>
+                <div class="social-icons mt-2">
+                    <a href="#"><i class="bi bi-facebook text-light me-3"></i></a>
+                    <a href="#"><i class="bi bi-twitter text-light me-3"></i></a>
+                    <a href="#"><i class="bi bi-instagram text-light me-3"></i></a>
+                    <a href="#"><i class="bi bi-linkedin text-light"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <hr style="color: rgb(115, 107, 107);">
+    <div class="text-center py-3">
+        <p>&copy; Copyright Rimel 2022. All rights reserved</p>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
