@@ -5,150 +5,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Dorks for Bug Bounty</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #212121;
-            color: #f0f0f0;
-            padding: 20px;
-            box-sizing: border-box;
+        :root {
+            --primary-color: #4CAF50;
+            --background-color: #111111;
+            --text-color: #ffffff;
+            --accent-color: #69f0ae;
+            --border-color: rgba(255, 255, 255, 0.1);
         }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
         h1 {
             font-size: 2.5em;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
         }
+
+        .search-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+
         label {
-            font-size: 1.2em;
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #888;
         }
+
         input {
-            font-size: 1em;
-            padding: 5px;
-            margin-left: 5px;
-        }
-        button {
-            font-size: 1em;
-            background-color: #4CAF50;
-            color: white;
+            width: 100%;
+            max-width: 500px;
+            font-size: 1.1em;
+            padding: 12px 20px;
             border: none;
-            padding: 6px 12px;
-            cursor: pointer;
-            margin-left: 5px;
+            border-bottom: 2px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            border-radius: 4px;
         }
-        button:hover {
-            background-color: #45a049;
+
+        input:focus {
+            outline: none;
+            border-bottom-color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.08);
         }
-        ul {
-            list-style-type: none;
+
+        .social-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 8px 16px;
+            color: #888;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        #dorkList {
+            margin: 40px 0;
             padding: 0;
         }
+
         li {
-            margin-bottom: 10px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: transform 0.2s ease;
         }
+
+        li:hover {
+            transform: translateX(10px);
+        }
+
         a {
             text-decoration: none;
-            color: #69f0ae;
+            color: var(--text-color);
+            transition: color 0.2s ease;
         }
+
         a:hover {
-            text-decoration: underline;
+            color: var(--accent-color);
         }
-        p {
-            margin: 0;
-        }
+
         p.description {
-            margin-bottom: 5px;
-            font-weight: bold;
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
         section {
-            margin-top: 20px;
-            border-top: 1px solid #ccc;
+            margin-top: 60px;
             padding-top: 20px;
+            border-top: 1px solid var(--border-color);
         }
+
         h2 {
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            color: #888;
+            margin-bottom: 20px;
         }
-        ul.link-list {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-        ul.link-list li {
-            margin-bottom: 10px;
-        }
-        .hidden { display: none; }
+
         #tooltip {
-        position: absolute;
-        background-color: black;
-        color: white;
-        padding: 5px;
-        border-radius: 5px;
-    }
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #888;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            input {
+                width: calc(100% - 40px);
+            }
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Google Dorks for Bug Bounty</h1>
-    <p>
-        <a href="https://twitter.com/TakSec" target="_blank">
-            <img src="https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec" alt="Twitter Follow Badge">
-        <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">GitHub Repo</a>
-        </a><br><br>
-    </p>
-    <label for="domainInput">Enter a domain:</label>
-    <input type="text" id="domainInput" placeholder="example.com" oninput="updateDomain()">
-    <div id="tooltip" class="hidden">For multiple domains, separate by comma. e.g., example1.com, example2.com</div>
+    <div class="container">
+        <h1>Google Dorks for Bug Bounty</h1>
+        
+        <div class="social-links">
+            <a href="https://twitter.com/TakSec" target="_blank" rel="noopener">
+                <img src="https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec" alt="Twitter Follow Badge">
+            </a>
+            <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank" rel="noopener">
+                GitHub Repo
+            </a>
+        </div>
+
+        <div class="search-container">
+            <label for="domainInput">Enter a domain:</label>
+            <input type="text" id="domainInput" placeholder="example.com" oninput="updateDomain()">
+        </div>
+        
+        <div id="tooltip" class="hidden">For multiple domains, separate by comma. e.g., example1.com, example2.com</div>
+    </div>
 
     <ul id="dorkList"></ul>
+
     <section>
         <h2>Additional Resources</h2>
         <ul class="link-list">
-            <li><a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">Google Dorks For Bug Bounty</a></li>
-            <li><a href="https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906" target="_blank">5 Google Dorks Every Hacker Needs to Know</a></li>
-            <li><a href="https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d" target="_blank">Uncover Hidden Gems in the Cloud with Google Dorks</a></li>
-            <li><a href="https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12" target="_blank">10 Google Dorks for Sensitive Data</a></li>
+            <li><a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank" rel="noopener">Google Dorks For Bug Bounty</a></li>
+            <li><a href="https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906" target="_blank" rel="noopener">5 Google Dorks Every Hacker Needs to Know</a></li>
+            <li><a href="https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d" target="_blank" rel="noopener">Uncover Hidden Gems in the Cloud with Google Dorks</a></li>
+            <li><a href="https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12" target="_blank" rel="noopener">10 Google Dorks for Sensitive Data</a></li>
         </ul>
     </section>
+
     <script>
-    const domainInput = document.getElementById('domainInput');
-    const tooltip = document.getElementById('tooltip');
+        const domainInput = document.getElementById('domainInput');
+        const tooltip = document.getElementById('tooltip');
 
-    domainInput.addEventListener('mouseover', function() {
-        tooltip.style.display = 'block';
-        tooltip.style.left = domainInput.offsetLeft + 'px';
-        tooltip.style.top = (domainInput.offsetTop + domainInput.offsetHeight + 5) + 'px';
-    });
+        domainInput.addEventListener('mouseover', function() {
+            tooltip.style.display = 'block';
+            tooltip.style.left = domainInput.offsetLeft + 'px';
+            tooltip.style.top = (domainInput.offsetTop + domainInput.offsetHeight + 5) + 'px';
+        });
 
-    domainInput.addEventListener('mouseout', function() {
-        tooltip.style.display = 'none';
-    });
-    
-    let originalDorks = [];
-    
-    async function fetchDorks() {
-        const url = "https://raw.githubusercontent.com/TakSec/google-dorks-bug-bounty/main/README.md";
-        const response = await fetch(url);
-        const text = await response.text();
+        domainInput.addEventListener('mouseout', function() {
+            tooltip.style.display = 'none';
+        });
+        
+        let originalDorks = [];
+        
+        async function fetchDorks() {
+            const url = "https://raw.githubusercontent.com/TakSec/google-dorks-bug-bounty/main/README.md";
+            const response = await fetch(url);
+            const text = await response.text();
 
-        const dorkList = document.getElementById("dorkList");
-        const regex = /(?:^### (.+)|```([^`]+)```)/gm;
-        let match;
-        let title = '';
-        let firstDork = true;
+            const dorkList = document.getElementById("dorkList");
+            const regex = /(?:^### (.+)|```([^`]+)```)/gm;
+            let match;
+            let title = '';
+            let firstDork = true;
 
-        while ((match = regex.exec(text)) !== null) {
-    if (match[1]) {
-        // Title match
-        title = match[1];
-    } else if (match[2]) {
-        // Dork match
-        const dork = match[2].trim();
-        originalDorks.push(dork);
-        const listItem = createDorkListItem(dork, title);
-        dorkList.appendChild(listItem);
+            while ((match = regex.exec(text)) !== null) {
+        if (match[1]) {
+            // Title match
+            title = match[1];
+        } else if (match[2]) {
+            // Dork match
+            const dork = match[2].trim();
+            originalDorks.push(dork);
+            const listItem = createDorkListItem(dork, title);
+            dorkList.appendChild(listItem);
+        }
     }
-}
-filterDorks();
-
-``
+    filterDorks();
 
     }
         
