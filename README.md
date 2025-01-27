@@ -259,6 +259,23 @@ site:*/joomla/login
 ```
 
 
+Google Drive :) huh
+```
+site:http://drive.google.com inurl:folder
+```
+```
+site:http://drive.google.com inurl:open
+```
+```
+site:http://docs.google.com inurl:d
+```
+```
+site:http://drive.google.com "confidential"
+```
+```
+site:http://docs.google.com inurl:d filetype:docx
+```
+
 ---
 
 Medium articles for more dorks:
