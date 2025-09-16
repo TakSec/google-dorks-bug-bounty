@@ -117,7 +117,7 @@ intext:“confidential” | intext:“Not for Public Release” | intext:”inte
 ### Sensitive Parameters
 
 ```
-inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
+inurl:email= | inurl:phone= | inurl:name= | inurl:user= inurl:& site:example[.]com
 ```
 
 ### Adobe Experience Manager (AEM)
