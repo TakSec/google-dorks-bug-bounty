@@ -92,7 +92,7 @@ site:example.com ”choose file”
 ### API Docs
 
 ```
-inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
+inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer | inurl:redoc | inurl:openapi | intitle:"Swagger UI" site:"example[.]com"
 ```
 
 ### Login Pages
