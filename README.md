@@ -86,7 +86,7 @@ inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | 
 ### File upload endpoints
 
 ```
-site:example.com ”choose file”
+site:example.com intext:”choose file” | intext:"select file" | intext:"upload PDF"
 ```
 
 ### API Docs
